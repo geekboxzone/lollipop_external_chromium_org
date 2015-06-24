@@ -196,6 +196,7 @@ WebMediaPlayerAndroid::~WebMediaPlayerAndroid() {
   if (stream_id_) {
     GLES2Interface* gl = stream_texture_factory_->ContextGL();
     gl->DeleteTextures(1, &texture_id_);
+	gl->Flush();
     texture_id_ = 0;
     texture_mailbox_ = gpu::Mailbox();
     stream_id_ = 0;
